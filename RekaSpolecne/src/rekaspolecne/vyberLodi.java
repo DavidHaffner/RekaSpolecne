@@ -12,8 +12,8 @@ package rekaspolecne;
  */
 public class vyberLodi {
            
-       Ship lodA = new Ship("Kamikadze", 20, 1,2);
-       RescueShip lodB = new RescueShip("Nicitel", 10, 0, 1, false);
+       Ship lodA = new Ship("Kamikadze", 20, 1,2,10);
+       RescueShip lodB = new RescueShip("Nicitel", 10, 0, 1,0, false);
         
         
   

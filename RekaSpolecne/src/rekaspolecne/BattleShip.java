@@ -12,8 +12,8 @@ package rekaspolecne;
 public class BattleShip extends Ship {
     /* atributy jen z předka Ship */
     
-    public BattleShip (String name, int hp, int nCannon, int team) {
-        super(name, hp, nCannon, team);
+    public BattleShip (String name, int hp, int nCannon, int team, int accuracy) {
+        super(name, hp, nCannon, team, accuracy);
         this.hp = 3;      // ať se zadá cokoli, hp bude defaultně nastaveno na 3
         this.nCannon = 2; // ať se zadá cokoli, nCannon bude defaultně nastaveno na 2
     }

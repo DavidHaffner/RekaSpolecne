@@ -18,12 +18,14 @@ public class Ship implements Cloneable {
     protected int hp;
     protected int nCannon;
     protected int team;
-
-    public Ship(String name, int hp, int nCannon, int team) {
+    protected int accuracy;
+    
+    public Ship(String name, int hp, int nCannon, int team, int accuracy) {
         this.name = name;
         this.hp = hp;
         this.nCannon = nCannon;
         this.team = team;
+        this.accuracy=accuracy;
     }
 // vrati HP
     public int getHp() {
@@ -33,6 +35,14 @@ public class Ship implements Cloneable {
     public int getNcannon() {
         return this.nCannon;
     }
+// vrati team
+    public int getTeam() {
+        return this.team;
+    }
+// vrati accuracy
+    public int getAccuracy() {
+        return this.accuracy;
+    }    
 // nastavi HP
     public void setHp(int hp) {
         this.hp = hp;
@@ -45,15 +55,15 @@ public class Ship implements Cloneable {
     public void setTeam(int team) {
         this.team = team;
     }
-// vrati team
-    public int getTeam() {
-        return this.team;
-    }
-
+// nastavi accuracy
+    public void setAccuracy(int accuracy) {
+        this.accuracy = accuracy;
+    }    
+    
     @Override
     public String toString() {
         return "Jmeno lodi: " + this.name + "Pocet zivotu: " + this.hp
-                + ";" + "\n" + "Pocet kanonu: " + this.nCannon + ";" + "\n";
+                + ";" + "\n" + "Pocet kanonu: " + this.nCannon + ";" + "\n"+"Přesnost střelby: "+this.accuracy+";"+"\n";
     }
 
     /* David: pom. metoda na klonování */

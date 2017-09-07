@@ -12,8 +12,8 @@ package rekaspolecne;
 public class Cruiser extends Ship {
     /* atributy jen z předka Ship */
     
-    public Cruiser (String name, int hp, int nCannon, int team) {
-        super(name, hp, nCannon, team);
+    public Cruiser (String name, int hp, int nCannon, int team, int accuracy) {
+        super(name, hp, nCannon, team, accuracy);
         this.hp = 2;      // ať se zadá cokoli, hp bude defaultně nastaveno na 2
         this.nCannon = 1; // ať se zadá cokoli, nCannon bude defaultně nastaveno na 1
     }

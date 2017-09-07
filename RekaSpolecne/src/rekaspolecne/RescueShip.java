@@ -13,8 +13,8 @@ package rekaspolecne;
 public class RescueShip extends Ship {
     private boolean workMode = false;
 
-    public RescueShip (String name, int hp, int nCannon, int team, boolean workMode) {   // objekt RescueShip
-        super (name, hp, nCannon, team); // dědíme z ship
+    public RescueShip (String name, int hp, int nCannon, int team, int accuracy, boolean workMode) {   // objekt RescueShip
+        super (name, hp, nCannon, team, accuracy); // dědíme z ship
         this.workMode = workMode; // nový atribut
     }
 
@@ -30,6 +30,6 @@ public class RescueShip extends Ship {
     @Override
    public String toString() {
         return "Jmeno lodi: " + this.name + "Pocet zivotu: " + this.hp
-                + ";" + "\n" + "Pocet kanonu: " + this.nCannon + ";" + "\n" + "WorkMode: " + this.workMode;
+                + ";" + "\n" + "Pocet kanonu: " + this.nCannon + ";" + "\n" +"Přesnost střelby: "+this.accuracy+";"+"\n" + "WorkMode: " + this.workMode;
     }
 }
