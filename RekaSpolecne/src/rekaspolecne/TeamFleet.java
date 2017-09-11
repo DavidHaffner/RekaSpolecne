@@ -13,6 +13,10 @@ import java.util.ArrayList;
  */
 public class TeamFleet {
     protected ArrayList<Ship> teamFleet = new ArrayList<Ship>();
+    
+    public TeamFleet () {
+        this.teamFleet = teamFleet;
+    }
 
     public void addShip(Ship lod) {
         teamFleet.add(lod);

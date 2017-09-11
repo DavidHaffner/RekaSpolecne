@@ -13,11 +13,12 @@ import java.util.Random;
  * @author Student
  */
 public class River {
-
-  
-  
     protected ArrayList<TeamFleet> reka = new ArrayList<TeamFleet>();
 
+    public River () {
+        this.reka = reka;
+    }
+    
     public void addFleet(TeamFleet teamFleet) {
         reka.add(teamFleet);
     }
