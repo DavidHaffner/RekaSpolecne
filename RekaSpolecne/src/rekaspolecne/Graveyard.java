@@ -17,12 +17,10 @@ public class Graveyard extends River {
     
     
     // pridani lodi do graveyardu - umre jde do graveyardu
-    @Override
      public void addShip(Ship lod) {
         graveyard.add(lod);
     }
 //odebrani lodi z graveyardu > jde do docku
-    @Override
     public void removeShip(Ship lod) {
         graveyard.remove(lod);
     }
@@ -33,7 +31,6 @@ public class Graveyard extends River {
     }
 
     // vrati lod na danem indexu
-    @Override
     public Ship getShip(int shipIndex) {
         return graveyard.get(shipIndex);
     }

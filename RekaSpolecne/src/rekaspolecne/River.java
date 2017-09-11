@@ -16,22 +16,22 @@ public class River {
 
   
   
-    protected ArrayList<Ship> reka = new ArrayList<Ship>();
+    protected ArrayList<TeamFleet> reka = new ArrayList<TeamFleet>();
 
-    public void addShip(Ship lod) {
-        reka.add(lod);
+    public void addFleet(TeamFleet teamFleet) {
+        reka.add(teamFleet);
     }
 
-    public void removeShip(Ship lod) {
-        reka.remove(lod);
+    public void removeFleet(TeamFleet teamFleet) {
+        reka.remove(teamFleet);
     }
 
     public int getSize() {
         return reka.size();
     }
 
-    public Ship getShip(int shipIndex) {
-        return reka.get(shipIndex);
+    public TeamFleet getTeamFleet(int teamFleetIndex) {
+        return reka.get(teamFleetIndex);
     }
 
   
@@ -39,8 +39,8 @@ public class River {
     @Override
     public String toString() {
         String dataElements = "";
-        for (Ship ship : reka) {
-            dataElements += ship.toString() + " " + "\n";
+        for (TeamFleet teamFleet : reka) {
+            dataElements += teamFleet.toString() + " " + "\n";
         }
         return "River(" + dataElements + ")";
 

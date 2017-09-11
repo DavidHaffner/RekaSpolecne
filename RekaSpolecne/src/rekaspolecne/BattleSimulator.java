@@ -16,11 +16,11 @@ public class BattleSimulator {
     River reka;
     Random rand = new Random();
 
-    int shipIndex;
-    Ship shipA;
-    Ship shipB;
-    int hp;
-    int x = 0;
+    int fleetIndex;
+    TeamFleet fleetA;
+    TeamFleet fleetB;
+    int hp;              // David: je to tu k něčemu?       
+    int x = 0;           // David: je to tu k něčemu?
 
     int tempIndex;
 
@@ -29,7 +29,7 @@ public class BattleSimulator {
 
     }
 
-    public int getShipIndex() {
+    public int getFleetIndex() {
         reka.getSize();
         return rand.nextInt(reka.getSize());
         
@@ -37,17 +37,19 @@ public class BattleSimulator {
 
     public void battle() {
 
-        while ((reka.getSize() > 1)) { //
+        while ((reka.getSize() > 1)) { 
 
             
             
-            shipA = reka.getShip(this.getShipIndex());
+            fleetA = reka.getTeamFleet(this.getFleetIndex());
             
-            shipB = reka.getShip(this.getShipIndex());
-            if (shipA.equals(shipB)) {
+            fleetB = reka.getTeamFleet(this.getFleetIndex());
+            if (fleetA.equals(fleetB)) {
                 battle();
             }
-
+            
+            /* David: tady se to musí komplet vymyslet a přepsat na flotily
+             
             hp = shipB.getHp() - (shipA.getNcannon() * 5);
             System.out.println("Utok lodi A: " + shipA.getNcannon() * 5);
             System.out.println("Zivoty lodi B: " + shipB.getHp());
@@ -56,7 +58,7 @@ public class BattleSimulator {
             
             if (shipB.getHp() < 1) {
             reka.removeShip(shipB);
-            }
+            }                                     */
             
             
             x++;
