@@ -10,16 +10,45 @@ package rekaspolecne;
  * @author DHA
  */
 public class Cruiser extends Ship {
-    /* atributy jen z předka Ship */
+    private int hp = 2;
+    private int nCannon = 1;
     
-    public Cruiser (String name, int hp, int nCannon, int team, int accuracy) {
-        super(name, hp, nCannon, team, accuracy);
-        this.hp = 2;      // ať se zadá cokoli, hp bude defaultně nastaveno na 2
-        this.nCannon = 1; // ať se zadá cokoli, nCannon bude defaultně nastaveno na 1
+    public Cruiser (String name, int team, int accuracy) {
+        super(name, team, accuracy);
+    }
+
+    /**
+     * @return the hp
+     */
+    public int getHp() {
+        return hp;
+    }
+
+    /**
+     * @param hp the hp to set
+     */
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    /**
+     * @return the nCannon
+     */
+    public int getnCannon() {
+        return nCannon;
+    }
+
+    /**
+     * @param nCannon the nCannon to set
+     */
+    public void setnCannon(int nCannon) {
+        this.nCannon = nCannon;
     }
     
-    /* gettery, settery, toString - přebírá z předka Ship */
-    
-    /* nějaké extra metody speciálně pro Cruiser? */
-        
+    /* nějaké extra metody speciálně pro Cruiser? */    
+    @Override
+    public String toString() {
+        return "Jmeno lodi: " + this.name + "Pocet zivotu: " + this.getHp()
+                + ";" + "\n" + "Pocet kanonu: " + this.getnCannon() + ";" + "\n" +"Přesnost střelby: "+this.accuracy+";"+"\n";
+    }
 }

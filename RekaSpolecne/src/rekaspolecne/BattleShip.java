@@ -10,16 +10,44 @@ package rekaspolecne;
  * @author DHA
  */
 public class BattleShip extends Ship {
-    /* atributy jen z předka Ship */
+    private int hp = 3;
+    private int nCannon = 2;
     
-    public BattleShip (String name, int hp, int nCannon, int team, int accuracy) {
-        super(name, hp, nCannon, team, accuracy);
-        this.hp = 3;      // ať se zadá cokoli, hp bude defaultně nastaveno na 3
-        this.nCannon = 2; // ať se zadá cokoli, nCannon bude defaultně nastaveno na 2
+    public BattleShip (String name, int team, int accuracy) {
+        super(name, team, accuracy);
+    }
+
+    /**
+     * @return the hp
+     */
+    public int getHp() {
+        return hp;
+    }
+
+    /**
+     * @param hp the hp to set
+     */
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    /**
+     * @return the nCannon
+     */
+    public int getnCannon() {
+        return nCannon;
+    }
+
+    /**
+     * @param nCannon the nCannon to set
+     */
+    public void setnCannon(int nCannon) {
+        this.nCannon = nCannon;
     }
     
-    /* gettery, settery, toString - přebírá z předka Ship */
-    
-    /* nějaké extra metody speciálně pro BattleShip? */
-        
+    @Override
+    public String toString() {
+        return "Jmeno lodi: " + this.name + "Pocet zivotu: " + this.getHp()
+                + ";" + "\n" + "Pocet kanonu: " + this.getnCannon() + ";" + "\n" +"Přesnost střelby: "+this.accuracy+";"+"\n";
+    }
 }

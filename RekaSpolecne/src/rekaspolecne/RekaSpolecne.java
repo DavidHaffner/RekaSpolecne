@@ -14,10 +14,10 @@ public class RekaSpolecne {
      */
     public static void main(String[] args) {
         // nejdříve založíme flotilu Ameriky
-        Ship indianapolis = new BattleShip ("Indianapolis",3,2,1,8);
-        Ship grant = new Cruiser ("Grant",2,1,1,7);
-        Ship lee = new Cruiser ("Lee",2,1,1,8);
-        Ship mississippi = new RescueShip ("Mississippi",1,0,1,4,false);
+        Ship indianapolis = new BattleShip ("Indianapolis",1,8);
+        Ship grant = new Cruiser ("Grant",1,7);
+        Ship lee = new Cruiser ("Lee",1,8);
+        Ship mississippi = new RescueShip ("Mississippi",1,4);
         
         TeamFleet fleetUSA = new TeamFleet ();
         fleetUSA.addShip(indianapolis);
@@ -26,10 +26,10 @@ public class RekaSpolecne {
         fleetUSA.addShip(mississippi);
         
         // a dále flotilu Sovětského Svazu
-        Ship rudyRijen = new BattleShip ("Rudý říjen",3,2,2,7);
-        Ship kutuzov = new Cruiser ("Kutuzov",2,1,2,6);
-        Ship kursk = new Cruiser ("Kursk",2,1,2,5);
-        Ship lenin = new RescueShip ("Lenin",2,0,2,4,false);
+        Ship rudyRijen = new BattleShip ("Rudý říjen",2,7);
+        Ship kutuzov = new Cruiser ("Kutuzov",2,6);
+        Ship kursk = new Cruiser ("Kursk",2,5);
+        Ship lenin = new RescueShip ("Lenin",2,4);
         
         TeamFleet fleetUSSR = new TeamFleet ();
         fleetUSSR.addShip(rudyRijen);
