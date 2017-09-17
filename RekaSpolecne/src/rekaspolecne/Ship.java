@@ -60,8 +60,9 @@ public class Ship implements Cloneable {
     
     @Override
     public String toString() {
-        return "Jmeno lodi: " + this.name + "Pocet zivotu: " + this.getHp()
-                + ";" + "\n" + "Pocet kanonu: " + this.getNcannon() + ";" + "\n" +"Přesnost střelby: "+this.accuracy+";"+"\n";
+        return "Jmeno lodi: " +this.name +";\n" +"Pocet zivotu: " + this.getHp()
+                +";\n" + "Pocet kanonu: " + this.getNcannon() +";\n" 
+                +"Přesnost střelby: " +this.accuracy +";\n";
     }
 
     /* David: pom. metoda na klonování */

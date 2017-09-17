@@ -10,29 +10,28 @@ import java.util.Random;
 
 /**
  *
- * @author Student
+ * @author DHA
  */
 public class River {
-    protected ArrayList<TeamFleet> reka = new ArrayList<TeamFleet>();
+    protected ArrayList<TeamFleet> river = new ArrayList<>();
 
     public River () {
-        this.reka = reka;
     }
     
     public void addFleet(TeamFleet teamFleet) {
-        reka.add(teamFleet);
+        river.add(teamFleet);
     }
 
-    public void removeFleet(TeamFleet teamFleet) {
-        reka.remove(teamFleet);
+    public void removeFleet(int indTeamFleet) {
+        river.remove(indTeamFleet);
     }
 
     public int getSize() {
-        return reka.size();
+        return river.size();
     }
 
     public TeamFleet getTeamFleet(int teamFleetIndex) {
-        return reka.get(teamFleetIndex);
+        return river.get(teamFleetIndex);
     }
 
   
@@ -40,10 +39,10 @@ public class River {
     @Override
     public String toString() {
         String dataElements = "";
-        for (TeamFleet teamFleet : reka) {
-            dataElements += teamFleet.toString() + " " + "\n";
+        for (TeamFleet teamFleet : river) {
+            dataElements += teamFleet.toString() + "\n";
         }
-        return "River(" + dataElements + ")";
+        return dataElements;
 
     }
 

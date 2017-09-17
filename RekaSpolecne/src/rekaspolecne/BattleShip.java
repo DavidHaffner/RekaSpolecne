@@ -45,9 +45,10 @@ public class BattleShip extends Ship {
         this.nCannon = nCannon;
     }
     
-    @Override
+    /* @Override
     public String toString() {
-        return "Jmeno lodi: " + this.name + "Pocet zivotu: " + this.getHp()
-                + ";" + "\n" + "Pocet kanonu: " + this.getnCannon() + ";" + "\n" +"Přesnost střelby: "+this.accuracy+";"+"\n";
-    }
+        return "Jmeno lodi: " +this.name +";\n" +"Pocet zivotu: " +this.getHp()
+                +";\n" +"Pocet kanonu: " +this.getnCannon() +";\n" 
+                +"Přesnost střelby: " +this.accuracy +";\n";
+    } */
 }

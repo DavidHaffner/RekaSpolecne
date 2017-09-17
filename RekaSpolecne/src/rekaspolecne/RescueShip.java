@@ -28,9 +28,9 @@ public class RescueShip extends Ship {
         this.workMode = workMode;
     }
     
-    @Override
+    /* @Override
    public String toString() {
         return "Jmeno lodi: " + this.name + "Pocet zivotu: " + this.hp
                 + ";" + "\n" + "Pocet kanonu: " + this.nCannon + ";" + "\n" +"Přesnost střelby: "+this.accuracy+";"+"\n" + "WorkMode: " + this.workMode;
-    }
+    } */
 }

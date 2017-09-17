@@ -12,17 +12,60 @@ import java.util.ArrayList;
  * @author DHA
  */
 public class TeamFleet {
-    protected ArrayList<Ship> teamFleet = new ArrayList<Ship>();
+    private String teamName;
+    protected ArrayList<Ship> teamShips = new ArrayList<>();
+    protected ArrayList<Dock> teamDocks = new ArrayList<>();
+    protected ArrayList<Ship> teamGraveyard = new ArrayList<>();
     
     public TeamFleet () {
-        this.teamFleet = teamFleet;
+    }
+    
+    // přidavače a odebírače do atributů: kolekcí teamShips, teamDocks a teamGY 
+    public void addTeamShip(Ship ship) {
+        this.teamShips.add(ship);
+    }
+    public void removeTeamShip(int indShip) {
+        this.teamShips.remove(indShip);
+    }
+    public void addTeamDock(Dock dock) {
+        this.teamDocks.add(dock);
+    }
+    public void removeTeamDock(int indDock) {
+        this.teamDocks.remove(indDock);
+    }
+    public void addTeamGraveyard(Ship ship) {
+        this.teamGraveyard.add(ship);
+    }
+    public void removeTeamGraveyard(int indShip) {
+        this.teamGraveyard.remove(indShip);
+    }
+    
+    // vypisovače jednotl kolekcí?
+    
+    @Override
+    public String toString() {
+        return this.getTeamName();
     }
 
-    public void addShip(Ship lod) {
-        teamFleet.add(lod);
+    /**
+     * @return the teamName
+     */
+    public String getTeamName() {
+        return teamName;
     }
 
-    public void removeShip(Ship lod) {
-        teamFleet.remove(lod);
+    /**
+     * @param teamName the teamName to set
+     */
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+    
+    public int sizeTeamShips () {
+        return this.teamShips.size();
+    }
+    
+    public Ship getTeamShip (int index) {
+        return this.teamShips.get(index); 
     }
 }
