@@ -9,14 +9,16 @@ package rekaspolecne;
  * Třída reprezentuje lodi, které budou schopné z river přesouvat do dock na upgrade
    nebo z graveyard do dock na repair
  * @author DHA -> Vilda -> DHA
- */
+ */ 
 public class RescueShip extends Ship {
     private boolean workMode = false;
-    private int hp = 1;
-    private int nCannon = 0;
+    // private int hp;
+    // private int nCannon;  
 
     public RescueShip (String name, int team, int accuracy) {   // objekt RescueShip
         super (name, team, accuracy); // dědíme z ship
+        hp=1;
+        nCannon=0;
     }
 
 // zjistění WorkMode T/F

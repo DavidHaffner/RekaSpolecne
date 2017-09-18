@@ -17,10 +17,10 @@ public class RekaSpolecne {
         -> do budoucna předělat na x flotil s y loděmi & náhodné losování */
         
         // nejdříve založíme flotilu Ameriky
-        Ship indianapolis = new BattleShip ("Indianapolis",1,8);
-        Ship grant = new Cruiser ("Grant",1,7);
-        Ship lee = new Cruiser ("Lee",1,8);
-        Ship mississippi = new RescueShip ("Mississippi",1,4);
+        BattleShip indianapolis = new BattleShip ("Indianapolis",1,8);
+        Cruiser grant = new Cruiser ("Grant",1,7);
+        Cruiser lee = new Cruiser ("Lee",1,8);
+        RescueShip mississippi = new RescueShip ("Mississippi",1,4);
         
         TeamFleet fleetUSA = new TeamFleet ();
         fleetUSA.setTeamName("Flotila USA");
@@ -30,10 +30,10 @@ public class RekaSpolecne {
         fleetUSA.addTeamShip(mississippi);
         
         // a dále flotilu Sovětského Svazu
-        Ship rudyRijen = new BattleShip ("Rudý říjen",2,7);
-        Ship kutuzov = new Cruiser ("Kutuzov",2,6);
-        Ship kursk = new Cruiser ("Kursk",2,5);
-        Ship lenin = new RescueShip ("Lenin",2,4);
+        BattleShip rudyRijen = new BattleShip ("Rudý říjen",2,7);
+        Cruiser kutuzov = new Cruiser ("Kutuzov",2,6);
+        Cruiser kursk = new Cruiser ("Kursk",2,5);
+        RescueShip lenin = new RescueShip ("Lenin",2,4);
         
         TeamFleet fleetUSSR = new TeamFleet ();
         fleetUSSR.setTeamName("Flotila USSR");

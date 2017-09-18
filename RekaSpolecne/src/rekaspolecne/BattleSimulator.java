@@ -60,9 +60,10 @@ public class BattleSimulator {
             Ship shipB = fleetB.getTeamShip(indShB);
             
             shipB.setHp(shipB.getHp()-shipA.getNcannon()); // výstřel A do B
-            System.out.printf(shipB.toString());
             shipA.setHp(shipA.getHp()-shipB.getNcannon()); // zároveň výstřel B do A
+            System.out.printf(shipB.toString()); // výstup do konzole
             System.out.printf(shipA.toString());
+            System.out.println();
             
             if (shipA.getHp()<1) {
                 shipA.setHp(0);  // nechceme záporné HP

@@ -10,11 +10,13 @@ package rekaspolecne;
  * @author DHA
  */
 public class Cruiser extends Ship {
-    private int hp = 2;
-    private int nCannon = 1;
+    // private int hp;
+    // private int nCannon;
     
     public Cruiser (String name, int team, int accuracy) {
         super(name, team, accuracy);
+        hp=2;
+        nCannon=1;
     }
 
     /**

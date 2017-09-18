@@ -8,13 +8,15 @@ package rekaspolecne;
 /**
  *
  * @author DHA
- */
+ */ 
 public class BattleShip extends Ship {
-    private int hp = 3;
-    private int nCannon = 2;
+    // private int hp = 3;
+    // private int nCannon = 2;
     
     public BattleShip (String name, int team, int accuracy) {
         super(name, team, accuracy);
+        hp=3;
+        nCannon=2;
     }
 
     /**
