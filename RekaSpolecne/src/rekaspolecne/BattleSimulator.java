@@ -52,15 +52,20 @@ public class BattleSimulator {
     /* metoda simuluje boj 2 flotil: bojujeme tak dlouho, dokud jedna z flotil 
     nebude mít v atributu teamShips nulu, tj. bude bez lodí */
     private void duel (TeamFleet fleetA, TeamFleet fleetB) {
-            
+        HitEvaluator hitEvaluator = new HitEvaluator();
+        
         while (fleetA.sizeTeamShips()>0 && fleetB.sizeTeamShips()>0) {
             int indShA = rand.nextInt(fleetA.sizeTeamShips()); // index ship A
             int indShB = rand.nextInt(fleetB.sizeTeamShips()); // index ship B    
             Ship shipA = fleetA.getTeamShip(indShA);
             Ship shipB = fleetB.getTeamShip(indShB);
             
+            if (hitEvaluator.hitEvaluator(shipA, shipB)) { // jestli se A trefí
             shipB.setHp(shipB.getHp()-shipA.getNcannon()); // výstřel A do B
-            shipA.setHp(shipA.getHp()-shipB.getNcannon()); // zároveň výstřel B do A
+            }
+            if (hitEvaluator.hitEvaluator(shipB, shipA)) { // jestli se B trefí
+            shipA.setHp(shipA.getHp()-shipB.getNcannon()); // výstřel B do A
+            }
             System.out.printf(shipB.toString()); // výstup do konzole
             System.out.printf(shipA.toString());
             System.out.println();

@@ -10,8 +10,6 @@ package rekaspolecne;
  * @author DHA
  */
 public class Cruiser extends Ship {
-    // private int hp;
-    // private int nCannon;
     
     public Cruiser (String name, int team, int accuracy) {
         super(name, team, accuracy);
@@ -49,9 +47,4 @@ public class Cruiser extends Ship {
     
     /* nějaké extra metody speciálně pro Cruiser? */    
     
-    /* @Override
-    public String toString() {
-        return "Jmeno lodi: " + this.name + "Pocet zivotu: " + this.getHp()
-                + ";" + "\n" + "Pocet kanonu: " + this.getnCannon() + ";" + "\n" +"Přesnost střelby: "+this.accuracy+";"+"\n";
-    } */
 }

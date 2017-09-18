@@ -9,13 +9,18 @@ import java.util.Random;
 
 /**
  *
- * @author Student
+ * @author Pavel -> David
  */
 //clas pro vyhodnocování trefy
 public class HitEvaluator {
-//berou se hodnoty z lodí které ze sebou bojují. shipA je útočící loď shipB je loď která se brání
-   public boolean hitEvaluator(Ship shipA,Ship shipB){
+    
+    public HitEvaluator () {
+    }
+    
+    // berou se hodnoty z lodí které ze sebou bojují. shipA je útočící loď shipB je loď která se brání
+    public boolean hitEvaluator(Ship shipA,Ship shipB){
         Random rand = new Random();
-    return rand.nextInt(shipA.accuracy)+shipA.nCannon>rand.nextInt(shipB.accuracy)+shipB.hp-shipA.nCannon;
+        return rand.nextInt(shipA.accuracy)+shipA.nCannon>rand.nextInt(shipB.accuracy)
+                +shipB.hp-shipA.nCannon;
     }
 }

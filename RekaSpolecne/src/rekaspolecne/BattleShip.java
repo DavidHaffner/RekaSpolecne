@@ -10,8 +10,6 @@ package rekaspolecne;
  * @author DHA
  */ 
 public class BattleShip extends Ship {
-    // private int hp = 3;
-    // private int nCannon = 2;
     
     public BattleShip (String name, int team, int accuracy) {
         super(name, team, accuracy);
@@ -46,11 +44,4 @@ public class BattleShip extends Ship {
     public void setnCannon(int nCannon) {
         this.nCannon = nCannon;
     }
-    
-    /* @Override
-    public String toString() {
-        return "Jmeno lodi: " +this.name +";\n" +"Pocet zivotu: " +this.getHp()
-                +";\n" +"Pocet kanonu: " +this.getnCannon() +";\n" 
-                +"Přesnost střelby: " +this.accuracy +";\n";
-    } */
 }
