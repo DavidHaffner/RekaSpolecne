@@ -10,39 +10,27 @@ package rekaspolecne;
  * @author DHA
  */
 public class Cruiser extends Ship {
+    protected int numberCannon =1;
     
-    public Cruiser (String name, int team, int accuracy) {
-        super(name, team, accuracy);
-        hp=2;
-        nCannon=1;
+    public Cruiser (String name, Fleet fleet, int accuracy) {
+        super (name, fleet, accuracy);
+        hp =2;
+        maxHp =2;
+    }
+
+
+    /**
+     * @return the numberCannon
+     */
+    public int getNumberCannon() {
+        return numberCannon;
     }
 
     /**
-     * @return the hp
+     * @param numberCannon the numberCannon to set
      */
-    public int getHp() {
-        return hp;
-    }
-
-    /**
-     * @param hp the hp to set
-     */
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    /**
-     * @return the nCannon
-     */
-    public int getnCannon() {
-        return nCannon;
-    }
-
-    /**
-     * @param nCannon the nCannon to set
-     */
-    public void setnCannon(int nCannon) {
-        this.nCannon = nCannon;
+    public void setNumberCannon(int numberCannon) {
+        this.numberCannon = numberCannon;
     }
     
     /* nějaké extra metody speciálně pro Cruiser? */    

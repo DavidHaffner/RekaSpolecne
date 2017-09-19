@@ -10,13 +10,13 @@ package rekaspolecne;
    nebo z graveyard do dock na repair
  * @author DHA -> Vilda -> DHA
  */ 
-public class RescueShip extends Ship {
+public class RescueShip extends Ship { 
     private boolean workMode = false; 
 
-    public RescueShip (String name, int team, int accuracy) {   // objekt RescueShip
-        super (name, team, accuracy); // dědíme z ship
-        hp=1;
-        nCannon=0;
+    public RescueShip (String name, Fleet fleet, int accuracy) {
+        super (name, fleet, accuracy);
+        hp =1;
+        maxHp =1;
     }
 
 // zjistění WorkMode T/F

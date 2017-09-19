@@ -10,38 +10,34 @@ package rekaspolecne;
  * @author DHA
  */ 
 public class BattleShip extends Ship {
+    protected int numberCannon =2;
     
-    public BattleShip (String name, int team, int accuracy) {
-        super(name, team, accuracy);
-        hp=3;
-        nCannon=2;
+    public BattleShip (String name, Fleet fleet, int accuracy) {
+        super (name, fleet, accuracy);
+        hp =3;
+        maxHp =3;
+    }
+
+    
+
+    /**
+     * @return the numberCannon
+     */
+    public int getNumberCannon() {
+        return numberCannon;
     }
 
     /**
-     * @return the hp
+     * @param numberCannon the numberCannon to set
      */
-    public int getHp() {
-        return hp;
+    public void setNumberCannon(int numberCannon) {
+        this.numberCannon = numberCannon;
     }
-
-    /**
-     * @param hp the hp to set
-     */
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    /**
-     * @return the nCannon
-     */
-    public int getnCannon() {
-        return nCannon;
-    }
-
-    /**
-     * @param nCannon the nCannon to set
-     */
-    public void setnCannon(int nCannon) {
-        this.nCannon = nCannon;
+    
+    @Override
+    public String toString() {
+        return "Jmeno lodi: " +this.getName() +";\n" +"Pocet zivotu: " +this.getHp()
+                +";\n" +"Pocet del: " +this.getNumberCannon() +";\n"   
+                +this.getFleet().toString() +";\n";
     }
 }

@@ -7,73 +7,54 @@ package rekaspolecne;
 
 /**
  * Tato třída importuje instanci typu Ship a může na ní provést repair (zvýšení
- * atributu hp) nebo upgrade (zvýšení atributu nCannon)
- * pozor! Getter i setter hází nahoru výjimky
+ * atributu hp) 
  * @author DHA
  */
 public class Dock {
-
-    /* jediný atribut: objekt/instance třídy Ship */
-    private Ship shipForDocking = null;
+    private Ship shipForDocking;
+    private boolean isEmpty =true;
 
     public Dock() {
-        this.shipForDocking = null; // jen založí instanci typu Dock - prázdnou (bez Shipu)
-        /* chceš-li instanci Dock naplnit lodí, použij metodu setShipForDocking */
     }
 
-    /* metoda na objektu tř. Ship zvedne atr. hp */
+    // metoda na objektu tř. Ship zvedne atr. hp
     public void repair() {
-        if (shipForDocking.getHp() <= 2) { //max. opraví hp na hodnotu 3
-            shipForDocking.setHp(shipForDocking.getHp() + 1);
-            System.out.println(shipForDocking.toString() + " byla opravena za 1HP");
+        if (getShipForDocking().getHp()<getShipForDocking().getMaxHp()) { 
+            getShipForDocking().setHp(getShipForDocking().getHp() + 1);
+            System.out.println(getShipForDocking().toString() + " byla opravena za 1HP");
         } else {
-            System.out.println(shipForDocking.toString() + " je na maximu HP");
+            System.out.println(getShipForDocking().toString() + " je na maximu HP");
         }
     }
-
-    /* metoda na objektu tř. Ship zvedne atr. nCannon */
-    public void cannUpgrade() {
-        if (shipForDocking.getNcannon() <= 1) { //max. vylepší nCannon na hodnotu 2
-            shipForDocking.setNcannon(shipForDocking.getNcannon() + 1);
-            System.out.println(shipForDocking.toString()
-                    + " byla vylepšena o 1 úroveň děl");
-        } else {
-            System.out.println(shipForDocking.toString() + " je na maximu děl");
-        }
-    }
-
-    /* metoda zkontroluje a vrátí hodnotu true, pokud je instance typu Dock 
-       prázdná (tj. null) */
-    public boolean isEmpty () {
-        if (this.shipForDocking ==null) {
-            return true;  
-        } else {
-            return false; 
-        }    
-    }
-    
 
     /**
-     * getter 
-     * pozor! tento getter vyjímá objekt Ship z doku - tj. dock je pak volný (null)
      * @return the shipForDocking
      */
-    public Ship getShipForDocking() throws CloneNotSupportedException {
-        Ship pom = (Ship)shipForDocking.clone();
-        this.shipForDocking = null;
-        return pom;
+    public Ship getShipForDocking() {
+        return shipForDocking;
     }
-    
+
     /**
-     * setter
      * @param shipForDocking the shipForDocking to set
      */
-    public void setShipForDocking(Ship shipForDocking) throws Exception {
-        if (this.isEmpty()) {
-            this.shipForDocking = shipForDocking;
-        } else { 
-            throw new Exception (
-            this.toString() + " je už plný");
-        }
+    public void setShipForDocking(Ship shipForDocking) {
+        this.shipForDocking = shipForDocking;
+        shipForDocking.isInDock =true;
+        this.isEmpty =false;
     }
+
+    /**
+     * @return the isEmpty
+     */
+    public boolean isEmpty() {
+        return isEmpty;
+    }
+
+    /**
+     * @param isEmpty the isEmpty to set
+     */
+    public void setIsEmpty(boolean isEmpty) {
+        this.isEmpty = isEmpty;
+    }
+
 }

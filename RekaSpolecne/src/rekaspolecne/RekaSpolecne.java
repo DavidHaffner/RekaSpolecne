@@ -22,7 +22,7 @@ public class RekaSpolecne {
         Cruiser lee = new Cruiser ("Lee",1,8);
         RescueShip mississippi = new RescueShip ("Mississippi",1,4);
         
-        TeamFleet fleetUSA = new TeamFleet ();
+        Fleet fleetUSA = new Fleet ();
         fleetUSA.setTeamName("Flotila USA");
         fleetUSA.addTeamShip(indianapolis);
         fleetUSA.addTeamShip(grant);
@@ -35,7 +35,7 @@ public class RekaSpolecne {
         Cruiser kursk = new Cruiser ("Kursk",2,5);
         RescueShip lenin = new RescueShip ("Lenin",2,4);
         
-        TeamFleet fleetUSSR = new TeamFleet ();
+        Fleet fleetUSSR = new Fleet ();
         fleetUSSR.setTeamName("Flotila USSR");
         fleetUSSR.addTeamShip(rudyRijen);
         fleetUSSR.addTeamShip(kutuzov);

@@ -13,25 +13,25 @@ import java.util.Random;
  * @author DHA
  */
 public class River {
-    protected ArrayList<TeamFleet> river = new ArrayList<>();
+    protected ArrayList<Fleet> river = new ArrayList<>();
 
     public River () {
     }
     
-    public void addFleet(TeamFleet teamFleet) {
-        river.add(teamFleet);
+    public void addFleet(Fleet fleet) {
+        river.add(fleet);
     }
 
-    public void removeFleet(int indTeamFleet) {
-        river.remove(indTeamFleet);
+    public void removeFleet(int indexFleet) {
+        river.remove(indexFleet);
     }
 
     public int getSize() {
         return river.size();
     }
 
-    public TeamFleet getTeamFleet(int teamFleetIndex) {
-        return river.get(teamFleetIndex);
+    public Fleet getFleet(int indexFleet) {
+        return river.get(indexFleet);
     }
 
   
@@ -39,7 +39,7 @@ public class River {
     @Override
     public String toString() {
         String dataElements = "";
-        for (TeamFleet teamFleet : river) {
+        for (Fleet teamFleet : river) {
             dataElements += teamFleet.toString() + "\n";
         }
         return dataElements;

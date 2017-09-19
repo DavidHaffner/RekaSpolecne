@@ -21,7 +21,7 @@ public class BattleSimulator {
 
     /* metoda simuluje boje po 2 flotilách až do konečného řešení vítězné otázky,
     tj. dokud nezůstane poslední flotila */
-    public River battle () {
+    public River run () {
         /* až zůstane v kolekci river poslední flotila, tak kolekci vrátíme jako output
         tj. právě s 1 elementem */
         while (this.river.getSize()>1) {
@@ -34,8 +34,8 @@ public class BattleSimulator {
             while (indFlA==indFlB) {
                 indFlB = rand.nextInt(this.river.getSize());
             }
-            TeamFleet fleetA = river.getTeamFleet(indFlA);
-            TeamFleet fleetB = river.getTeamFleet(indFlB);
+            Fleet fleetA = river.getTeamFleet(indFlA);
+            Fleet fleetB = river.getTeamFleet(indFlB);
             
             duel (fleetA, fleetB);
             
@@ -51,7 +51,7 @@ public class BattleSimulator {
     
     /* metoda simuluje boj 2 flotil: bojujeme tak dlouho, dokud jedna z flotil 
     nebude mít v atributu teamShips nulu, tj. bude bez lodí */
-    private void duel (TeamFleet fleetA, TeamFleet fleetB) {
+    private void duel (Fleet fleetA, Fleet fleetB) {
         HitEvaluator hitEvaluator = new HitEvaluator();
         
         while (fleetA.sizeTeamShips()>0 && fleetB.sizeTeamShips()>0) {
