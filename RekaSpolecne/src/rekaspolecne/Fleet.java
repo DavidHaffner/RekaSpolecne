@@ -12,11 +12,12 @@ import java.util.ArrayList;
  * @author DHA
  */
 public class Fleet {
-    private String fleetName;
+    protected String fleetName;
     protected ArrayList<Ship> fleetShips = new ArrayList<>();
     protected ArrayList<Dock> fleetDocks = new ArrayList<>();
     
-    public Fleet () {
+    public Fleet (String fleetName ) {
+        this.fleetName =fleetName;
     }
     
     // přidavače a odebírače do atributů: kolekcí teamShips, teamDocks a teamGY 
@@ -92,5 +93,33 @@ public class Fleet {
      */
     public Ship getFleetShip (int index) {
         return this.fleetShips.get(index); 
+    }
+    
+    // metoda dostane na vstupu počet lodí ve flotile a vygeneruje kolekci lodí do fleetShips
+    public void createFleet (int numberShips) {
+        for (int i=1; i<=numberShips; i++) {
+            if (i%4==0) { //každá čtvrtá loď je RescueShip + vytvoří i dok
+                RescueShip rescueShip = new RescueShip("name", fleet, 0);
+                this.addShip(rescueShip);
+                Dock dock = new Dock();
+                this.addDock(dock);
+            } else {
+                /*vytvářím buď BattleShip nebo Cruiser;
+                hodnota accuracy bude v rozmezí 3-8 */
+                int randomShip = (int) (Math.random()*2);
+                int randomAccuracy = (int) (Math.random()*6+3); 
+                switch (randomShip) {  
+                    case 0: 
+                        BattleShip battleShip = new BattleShip("name",fleet,randomAccuracy);
+                        this.addShip(battleShip);
+                        break;
+                    case 1:
+                        Cruiser cruiser = new Cruiser("name",fleet,randomAccuracy);
+                        this.addShip(cruiser);
+                        break;
+                    default: System.out.println("Chyba při tvorbě flotily");
+                }
+            }
+        }
     }
 }

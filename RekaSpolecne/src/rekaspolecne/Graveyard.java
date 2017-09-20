@@ -52,11 +52,11 @@ public class Graveyard {
 
     @Override
     public String toString() {
-        String grYaElements = "";
+        String graveyardElements = "";
         for (Ship ship : graveyard) {
-            grYaElements += ship.toString() +"\n";
+            graveyardElements += ship.toString() +"\n";
         }
-        return grYaElements;
+        return graveyardElements;
     }
     
 }

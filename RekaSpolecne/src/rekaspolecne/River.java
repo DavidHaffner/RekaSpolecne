@@ -13,9 +13,11 @@ import java.util.Random;
  * @author DHA
  */
 public class River {
+    // hlavní atribut třídy
     protected ArrayList<Fleet> river = new ArrayList<>();
-
-    public River () {
+    
+    public River (int numberShips, int numberFleets) {
+        
     }
     
     /**

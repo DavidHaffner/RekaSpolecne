@@ -18,7 +18,7 @@ public class HitEvaluator {
     }
     
     // berou se hodnoty z lodí které ze sebou bojují. shipA je útočící loď shipB je loď která se brání
-    // pozn. David: tř.Ship nemá numberCannon - přepsat na přetypování na potomky pomocí instanceOf
+ 
 
     /**
      * Method to determine if shipA damages (hits) shipB
@@ -28,7 +28,17 @@ public class HitEvaluator {
      */
     public boolean hitEvaluator(Ship shipA,Ship shipB){
         Random rand = new Random();
-        return rand.nextInt(shipA.getAccuracy())+shipA.numberCannon>rand.nextInt(shipB.getAccuracy())
-                +shipB.getHp()-shipA.numberCannon;
+        if (shipA instanceof BattleShip) {
+            shipA = (BattleShip) shipA;
+            return rand.nextInt(shipA.getAccuracy())+((BattleShip)shipA).getNumberCannon()>
+                    rand.nextInt(shipB.getAccuracy())+shipB.getHp()-((BattleShip)shipA).getNumberCannon();
+        }
+        if (shipA instanceof Cruiser) {
+            return rand.nextInt(shipA.getAccuracy())+((Cruiser)shipA).getNumberCannon()>
+                    rand.nextInt(shipB.getAccuracy())+shipB.getHp()-((Cruiser)shipA).getNumberCannon();
+        } else {
+            return false;    
+        }
+        
     }
 }

@@ -9,7 +9,7 @@ import java.util.Random;
 
 /**
  *
- * @author DHA
+ * @author 
  */
 public class BattleSimulator {
     private River river;
@@ -34,15 +34,15 @@ public class BattleSimulator {
             while (indFlA==indFlB) {
                 indFlB = rand.nextInt(this.river.getSize());
             }
-            Fleet fleetA = river.getTeamFleet(indFlA);
-            Fleet fleetB = river.getTeamFleet(indFlB);
+            Fleet fleetA = river.getFleet(indFlA);
+            Fleet fleetB = river.getFleet(indFlB);
             
             duel (fleetA, fleetB);
             
-            if (fleetA.sizeTeamShips()==0) {
+            if (fleetA.sizeFleetShips()==0) {
                 river.removeFleet(indFlA);  // potopená flotila je odstraněna
             }            
-            if (fleetB.sizeTeamShips()==0) {
+            if (fleetB.sizeFleetShips()==0) {
                 river.removeFleet(indFlB);  // potopená flotila je odstraněna
             }     
         }

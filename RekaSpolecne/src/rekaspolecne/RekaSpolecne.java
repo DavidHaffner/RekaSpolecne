@@ -13,9 +13,8 @@ public class RekaSpolecne {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /* PŘEDPOKLAD: zatím jen 2 flotily po 4 lodích & stejná struktura flotil;
-        -> do budoucna předělat na x flotil s y loděmi & náhodné losování */
         
+        /* STARÝ KÓD
         // nejdříve založíme flotilu Ameriky
         BattleShip indianapolis = new BattleShip ("Indianapolis",1,8);
         Cruiser grant = new Cruiser ("Grant",1,7);
@@ -47,7 +46,7 @@ public class RekaSpolecne {
         // umístění flotil do kolekce river
         River river = new River ();
         river.addFleet(fleetUSA);
-        river.addFleet(fleetUSSR);
+        river.addFleet(fleetUSSR); */
         
         // a dále spustíme bitvu dokud nezůstane 1 vítězná flotila
         BattleSimulator battleSimulator = new BattleSimulator (river); 
