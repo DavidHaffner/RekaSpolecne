@@ -18,20 +18,37 @@ public class River {
     public River () {
     }
     
+    /**
+     * Adds fleet to AL river
+     * @param fleet Fleet
+     */
     public void addFleet(Fleet fleet) {
-        river.add(fleet);
+        this.river.add(fleet);
     }
 
+    /**
+     * Removes Fleet from AL river at specified index position
+     * @param indexFleet int
+     */
     public void removeFleet(int indexFleet) {
-        river.remove(indexFleet);
+        this.river.remove(indexFleet);
     }
 
+    /**
+     * Returns size of the AL river
+     * @return int
+     */
     public int getSize() {
-        return river.size();
+        return this.river.size();
     }
 
+    /**
+     * Returns fleet in the AL river at specified index
+     * @param indexFleet int
+     * @return Fleet
+     */
     public Fleet getFleet(int indexFleet) {
-        return river.get(indexFleet);
+        return this.river.get(indexFleet);
     }
 
   

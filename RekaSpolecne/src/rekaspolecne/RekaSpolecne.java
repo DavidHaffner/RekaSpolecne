@@ -29,6 +29,8 @@ public class RekaSpolecne {
         fleetUSA.addTeamShip(lee);
         fleetUSA.addTeamShip(mississippi);
         
+        
+        
         // a dále flotilu Sovětského Svazu
         BattleShip rudyRijen = new BattleShip ("Rudý říjen",2,7);
         Cruiser kutuzov = new Cruiser ("Kutuzov",2,6);

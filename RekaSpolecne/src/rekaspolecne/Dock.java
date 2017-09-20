@@ -17,7 +17,9 @@ public class Dock {
     public Dock() {
     }
 
-    // metoda na objektu tř. Ship zvedne atr. hp
+    /**
+     * Repairs ship for hp++
+     */
     public void repair() {
         if (getShipForDocking().getHp()<getShipForDocking().getMaxHp()) { 
             getShipForDocking().setHp(getShipForDocking().getHp() + 1);
@@ -28,14 +30,15 @@ public class Dock {
     }
 
     /**
-     * @return the shipForDocking
+     * @return Ship shipForDocking
      */
     public Ship getShipForDocking() {
-        return shipForDocking;
+        return this.shipForDocking;
     }
 
     /**
-     * @param shipForDocking the shipForDocking to set
+     * Setter for the shipForDocking 
+     * @param shipForDocking Ship
      */
     public void setShipForDocking(Ship shipForDocking) {
         this.shipForDocking = shipForDocking;
@@ -44,14 +47,16 @@ public class Dock {
     }
 
     /**
-     * @return the isEmpty
+     * Returns runtime value of isEmpty
+     * @return boolean
      */
     public boolean isEmpty() {
-        return isEmpty;
+        return this.isEmpty;
     }
 
     /**
-     * @param isEmpty the isEmpty to set
+     * Setter for isEmpty
+     * @param isEmpty boolean
      */
     public void setIsEmpty(boolean isEmpty) {
         this.isEmpty = isEmpty;

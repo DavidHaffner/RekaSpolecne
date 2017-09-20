@@ -39,91 +39,104 @@ public class Ship {
     } */
 
     /**
-     * @return the name
+     * Getter for ship name
+     * @return String
      */
     public String getName() {
-        return name;
+        return this.name;
     }
 
     /**
-     * @param name the name to set
+     * Setter for ship name
+     * @param name String
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * @return the hp
+     * Getter for ship HP
+     * @return int
      */
     public int getHp() {
-        return hp;
+        return this.hp;
     }
 
     /**
-     * @param hp the hp to set
+     * Setter for ship's hp
+     * @param hp
      */
     public void setHp(int hp) {
         this.hp = hp;
     }
 
     /**
-     * @return the maxHp
+     * Getter for ship's maxHp
+     * @return int
      */
     public int getMaxHp() {
-        return maxHp;
+        return this.maxHp;
     }
 
     /**
-     * @return the fleet
+     * Getter for ship's Fleet
+     * @return Fleet
      */
     public Fleet getFleet() {
-        return fleet;
+        return this.fleet;
     }
 
     /**
-     * @param fleet the fleet to set
+     * Setter for ship's Fleet
+     * @param fleet Fleet
      */
     public void setFleet(Fleet fleet) {
         this.fleet = fleet;
     }
 
     /**
-     * @return the isInDock
+     * Method to check if ship is docked
+     * @return boolean
      */
     public boolean isIsInDock() {
-        return isInDock;
+        return this.isInDock;
     }
 
     /**
-     * @param isInDock the isInDock to set
+     * Setter for isInDock
+     * @param isInDock boolean
      */
     public void setIsInDock(boolean isInDock) {
         this.isInDock = isInDock;
     }
 
     /**
-     * @return the isInGraveyard
+     * Method to check if ship's in graveyard
+     * @return boolean
      */
     public boolean isIsInGraveyard() {
-        return isInGraveyard;
+        return this.isInGraveyard;
     }
 
     /**
-     * @param isInGraveyard the isInGraveyard to set
+     * Setter for isInGraveyard
+     * @param isInGraveyard boolean
      */
     public void setIsInGraveyard(boolean isInGraveyard) {
         this.isInGraveyard = isInGraveyard;
     }
 
     /**
-     * @return the accuracy
+     * Getter for ship's accuracy
+     * @return int
      */
     public int getAccuracy() {
-        return accuracy;
+        return this.accuracy;
     }
 
     /**
-     * @param accuracy the accuracy to set
+     * Setter for ship's accuracy
+     * @param accuracy int
      */
     public void setAccuracy(int accuracy) {
         this.accuracy = accuracy;

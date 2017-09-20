@@ -16,17 +16,31 @@ public class Graveyard {
     ArrayList<Ship> graveyard = new ArrayList<>();
     
     
-    // pridani lodi do graveyardu - umre jde do graveyardu
+
+
+    /**
+     * Method to add dead ship to graveyard.
+     * @param lod Ship
+     */
      public void addShip(Ship lod) {
-        graveyard.add(lod);
+        this.graveyard.add(lod);
     }
-    //odebrani lodi z graveyardu > jde do docku
+
+    /**
+     * Method to remove ship from graveyard. Ship should be removed only if it is moved to dock for repair
+     * @param lod Ship
+     */
     public void removeShip(Ship lod) {
-        graveyard.remove(lod);
+        this.graveyard.remove(lod);
     }
-    // vrati velikost graveyardu
+
+
+    /**
+     * Getter for AL graveyard size
+     * @return int
+     */
     public int getSize() {
-        return graveyard.size();
+        return this.graveyard.size();
     }
 
     /* vrati lod na danem indexu - David: je to vůbec potřeba?

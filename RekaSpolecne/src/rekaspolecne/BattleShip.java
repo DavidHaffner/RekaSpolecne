@@ -21,14 +21,16 @@ public class BattleShip extends Ship {
     
 
     /**
-     * @return the numberCannon
+     * Returns number of ship's cannons
+     * @return int
      */
     public int getNumberCannon() {
-        return numberCannon;
+        return this.numberCannon;
     }
 
     /**
-     * @param numberCannon the numberCannon to set
+     * Setter for ship's cannons
+     * @param numberCannon int
      */
     public void setNumberCannon(int numberCannon) {
         this.numberCannon = numberCannon;

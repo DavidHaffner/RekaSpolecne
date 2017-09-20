@@ -19,6 +19,13 @@ public class HitEvaluator {
     
     // berou se hodnoty z lodí které ze sebou bojují. shipA je útočící loď shipB je loď která se brání
     // pozn. David: tř.Ship nemá numberCannon - přepsat na přetypování na potomky pomocí instanceOf
+
+    /**
+     * Method to determine if shipA damages (hits) shipB
+     * @param shipA Ship
+     * @param shipB Ship
+     * @return boolean
+     */
     public boolean hitEvaluator(Ship shipA,Ship shipB){
         Random rand = new Random();
         return rand.nextInt(shipA.getAccuracy())+shipA.numberCannon>rand.nextInt(shipB.getAccuracy())
