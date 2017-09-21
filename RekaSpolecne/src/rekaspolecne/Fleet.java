@@ -5,7 +5,15 @@
  */
 package rekaspolecne;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 /**
  *
@@ -95,6 +103,8 @@ public class Fleet {
         return this.fleetShips.get(index); 
     }
     
+    
+    
     // metoda dostane na vstupu počet lodí ve flotile a vygeneruje kolekci lodí do fleetShips
     public void createFleet (int numberShips) {
         for (int i=1; i<=numberShips; i++) {
@@ -117,7 +127,7 @@ public class Fleet {
                         Cruiser cruiser = new Cruiser("name",fleet,randomAccuracy);
                         this.addShip(cruiser);
                         break;
-                    default: System.out.println("Chyba při tvorbě flotily");
+                    default: logger.log(Level.INFO, "Chyba při tvorbě flotily");
                 }
             }
         }

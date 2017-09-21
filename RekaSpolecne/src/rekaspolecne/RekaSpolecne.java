@@ -3,17 +3,28 @@
  */
 package rekaspolecne;
 
+import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Logger;
+
 /**
  *
  * @author DHA
  */
 public class RekaSpolecne {
 
+    static Logger logger = Logger.getLogger(RekaSpolecne.class.getName());
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        try {
+        Handler fileHandler = new FileHandler("logger.log", 2000, 5);
+        } catch (SecurityException | IOException e) {
+            e.printStackTrace();
+        }
         /* STARÝ KÓD
         // nejdříve založíme flotilu Ameriky
         BattleShip indianapolis = new BattleShip ("Indianapolis",1,8);
