@@ -24,8 +24,12 @@ public class Fleet {
     protected ArrayList<Ship> fleetShips = new ArrayList<>();
     protected ArrayList<Dock> fleetDocks = new ArrayList<>();
     
-    public Fleet (String fleetName ) {
+    public Fleet (String fleetName) {
         this.fleetName =fleetName;
+    }
+    public Fleet (String fleetName, int numberShips) {
+        this.fleetName =fleetName;
+        createFleet(numberShips);
     }
     
     // přidavače a odebírače do atributů: kolekcí teamShips, teamDocks a teamGY 
@@ -109,7 +113,7 @@ public class Fleet {
     public void createFleet (int numberShips) {
         for (int i=1; i<=numberShips; i++) {
             if (i%4==0) { //každá čtvrtá loď je RescueShip + vytvoří i dok
-                RescueShip rescueShip = new RescueShip("name", fleet, 0);
+                RescueShip rescueShip = new RescueShip("name", this, 0);
                 this.addShip(rescueShip);
                 Dock dock = new Dock();
                 this.addDock(dock);
@@ -120,11 +124,11 @@ public class Fleet {
                 int randomAccuracy = (int) (Math.random()*6+3); 
                 switch (randomShip) {  
                     case 0: 
-                        BattleShip battleShip = new BattleShip("name",fleet,randomAccuracy);
+                        BattleShip battleShip = new BattleShip("name",this,randomAccuracy);
                         this.addShip(battleShip);
                         break;
                     case 1:
-                        Cruiser cruiser = new Cruiser("name",fleet,randomAccuracy);
+                        Cruiser cruiser = new Cruiser("name",this,randomAccuracy);
                         this.addShip(cruiser);
                         break;
                     default: logger.log(Level.INFO, "Chyba při tvorbě flotily");

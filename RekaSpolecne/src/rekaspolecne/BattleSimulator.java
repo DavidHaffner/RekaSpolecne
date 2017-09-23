@@ -9,7 +9,7 @@ import java.util.Random;
 
 /**
  *
- * @author 
+ * @author společně
  */
 public class BattleSimulator {
     private River river;
@@ -19,29 +19,25 @@ public class BattleSimulator {
         this.river = river;
     }
 
-    /* metoda simuluje boje po 2 flotilách až do konečného řešení vítězné otázky,
+    /* metoda simuluje boj všech flotil až do konečného řešení vítězné otázky,
     tj. dokud nezůstane poslední flotila */
     public River run () {
         /* až zůstane v kolekci river poslední flotila, tak kolekci vrátíme jako output
         tj. právě s 1 elementem */
         while (this.river.getSize()>1) {
             
-            // nejdříve vybereme indexy 2 flotil a ty spolu budou bojovat
-            int indFlA; // index fleet A
-            indFlA = rand.nextInt(this.river.getSize());
-            int indFlB; // index fleet B
-            indFlB = rand.nextInt(this.river.getSize()); 
-            while (indFlA==indFlB) {
-                indFlB = rand.nextInt(this.river.getSize());
+            //cyklus - náhodná loď z každé flotily vystřelí na náhodný cíl
+            for (int i=0; i<this.river.getSize(); i++) {
+                
+                
             }
-            Fleet fleetA = river.getFleet(indFlA);
-            Fleet fleetB = river.getFleet(indFlB);
             
-            duel (fleetA, fleetB);
             
-            if (fleetA.sizeFleetShips()==0) {
-                river.removeFleet(indFlA);  // potopená flotila je odstraněna
-            }            
+            
+            
+            
+            
+            
             if (fleetB.sizeFleetShips()==0) {
                 river.removeFleet(indFlB);  // potopená flotila je odstraněna
             }     
@@ -49,8 +45,9 @@ public class BattleSimulator {
         return this.river;
     }
     
-    /* metoda simuluje boj 2 flotil: bojujeme tak dlouho, dokud jedna z flotil 
-    nebude mít v atributu teamShips nulu, tj. bude bez lodí */
+    /* NAKONEC NEPOUŽITO:
+    metoda simuluje boj 2 flotil: bojujeme tak dlouho, dokud jedna z flotil 
+    nebude mít v atributu teamShips nulu, tj. bude bez lodí
     private void duel (Fleet fleetA, Fleet fleetB) {
         HitEvaluator hitEvaluator = new HitEvaluator();
         
@@ -81,5 +78,5 @@ public class BattleSimulator {
                 fleetB.removeTeamShip(indShB);
             }
         }        
-    }
+    } */
 }
