@@ -13,6 +13,7 @@ import java.util.Random;
  */
 public class BattleSimulator {
     River river;
+    Graveyard graveyard;
 
     public BattleSimulator (River river) {
         this.river = river;
@@ -34,9 +35,9 @@ public class BattleSimulator {
                 
                 // index flotily, na kterou bude útočeno
                 int indexFleetDefender = (int) (Math.random()*this.river.getSize());
-                    while (i==indexFleetDefender) {
+                while (i==indexFleetDefender) {
                         indexFleetDefender = (int) (Math.random()*this.river.getSize());
-                    }
+                }
                 
                 // index lodi z vybrané flotily, na kterou bude útočeno
                 int indexShipDefender = (int) (Math.random()*
@@ -47,64 +48,30 @@ public class BattleSimulator {
                         getFleetShip(indexShipDefender);
                 
                 if (hitEvaluator.hitEvaluator(attacker, defender)) { //jestli se útočník trefí
-                    defender.setHp(defender.getHp()-attacker.getNcannon()); //vystřelí do obránce
+                    if (attacker instanceof BattleShip) {
+                        //vystřelí do obránce
+                        defender.setHp(defender.getHp()-((BattleShip)attacker).getNumberCannon()); 
+                    }
+                    if (attacker instanceof Cruiser) { 
+                        //vystřelí do obránce
+                        defender.setHp(defender.getHp()-((Cruiser)attacker).getNumberCannon()); 
+                    }
                 }
+                
                 System.out.printf(defender.toString()); //výstup do konzole
                 System.out.println();
                 if (defender.getHp()<1) {
-                defender.setHp(0);  //nechceme záporné HP
-                                    //přidá zničeného obránce do graveyardu
+                defender.setHp(0);  //nechceme záporné HP - nastavení na nulu
+                }
+                graveyard.addShip(defender);  //přidá zničeného obránce do graveyardu
+                defender.setIsInGraveyard(true);
                 this.river.getFleet(indexFleetDefender).removeShip(indexShipDefender); //odstraní z flotily
-            }
                 
-                
+                if (this.river.getFleet(indexFleetDefender).sizeFleetShips()==0) {
+                    this.river.removeFleet(indexFleetDefender); //flotila bez lodí je odstraněna z river
+                }
             }
-            
-            
-            
-            
-            
-            
-            
-            if (fleetB.sizeFleetShips()==0) {
-                river.removeFleet(indFlB);  // potopená flotila je odstraněna
-            }     
         }
         return this.river;
     }
-    
-    /* NAKONEC NEPOUŽITO:
-    metoda simuluje boj 2 flotil: bojujeme tak dlouho, dokud jedna z flotil 
-    nebude mít v atributu teamShips nulu, tj. bude bez lodí
-    private void duel (Fleet fleetA, Fleet fleetB) {
-        HitEvaluator hitEvaluator = new HitEvaluator();
-        
-        while (fleetA.sizeTeamShips()>0 && fleetB.sizeTeamShips()>0) {
-            int indShA = rand.nextInt(fleetA.sizeTeamShips()); // index ship A
-            int indShB = rand.nextInt(fleetB.sizeTeamShips()); // index ship B    
-            Ship shipA = fleetA.getTeamShip(indShA);
-            Ship shipB = fleetB.getTeamShip(indShB);
-            
-            if (hitEvaluator.hitEvaluator(shipA, shipB)) { // jestli se A trefí
-            shipB.setHp(shipB.getHp()-shipA.getNcannon()); // výstřel A do B
-            }
-            if (hitEvaluator.hitEvaluator(shipB, shipA)) { // jestli se B trefí
-            shipA.setHp(shipA.getHp()-shipB.getNcannon()); // výstřel B do A
-            }
-            System.out.printf(shipB.toString()); // výstup do konzole
-            System.out.printf(shipA.toString());
-            System.out.println();
-            
-            if (shipA.getHp()<1) {
-                shipA.setHp(0);  // nechceme záporné HP
-                fleetA.addTeamGraveyard(shipA);
-                fleetA.removeTeamShip(indShA);
-            }
-            if (shipB.getHp()<1) {
-                shipB.setHp(0);  // nechceme záporné HP
-                fleetB.addTeamGraveyard(shipB);
-                fleetB.removeTeamShip(indShB);
-            }
-        }        
-    } */
 }

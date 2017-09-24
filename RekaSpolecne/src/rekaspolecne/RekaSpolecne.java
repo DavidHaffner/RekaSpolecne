@@ -38,11 +38,7 @@ public class RekaSpolecne {
         BattleSimulator battleSimulator = new BattleSimulator (river); 
         battleSimulator.run();
         
-        /* DODĚLAT
-        // a dále spustíme bitvu dokud nezůstane 1 vítězná flotila
-        BattleSimulator battleSimulator = new BattleSimulator (river); 
-        River victor = battleSimulator.battle();
-        System.out.println("A bitvu vyhrává: " + victor.getTeamFleet(0).getTeamName()); */
+        System.out.println("A bitvu vyhrává: " + river.getFleet(0).toString());
     }    
 }
 
