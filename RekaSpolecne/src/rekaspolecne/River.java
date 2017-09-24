@@ -16,8 +16,11 @@ public class River {
     // hlavní atribut třídy
     protected ArrayList<Fleet> river = new ArrayList<>();
     
-    public River (int numberShips, int numberFleets) {
-        
+    public River (int numberShips, int numberFleets, String[] fleetNames) {
+        for (int i=0; i<numberFleets; i++) {
+            Fleet fleet = new Fleet (fleetNames[i], numberShips);
+            this.addFleet(fleet);
+        }
     }
     
     /**

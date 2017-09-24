@@ -112,8 +112,9 @@ public class Fleet {
     // metoda dostane na vstupu počet lodí ve flotile a vygeneruje kolekci lodí do fleetShips
     public void createFleet (int numberShips) {
         for (int i=1; i<=numberShips; i++) {
+            String shipName = "Loď " +i;
             if (i%4==0) { //každá čtvrtá loď je RescueShip + vytvoří i dok
-                RescueShip rescueShip = new RescueShip("name", this, 0);
+                RescueShip rescueShip = new RescueShip(shipName, this, 0);
                 this.addShip(rescueShip);
                 Dock dock = new Dock();
                 this.addDock(dock);
@@ -124,11 +125,11 @@ public class Fleet {
                 int randomAccuracy = (int) (Math.random()*6+3); 
                 switch (randomShip) {  
                     case 0: 
-                        BattleShip battleShip = new BattleShip("name",this,randomAccuracy);
+                        BattleShip battleShip = new BattleShip(shipName,this,randomAccuracy);
                         this.addShip(battleShip);
                         break;
                     case 1:
-                        Cruiser cruiser = new Cruiser("name",this,randomAccuracy);
+                        Cruiser cruiser = new Cruiser(shipName,this,randomAccuracy);
                         this.addShip(cruiser);
                         break;
                     default: logger.log(Level.INFO, "Chyba při tvorbě flotily");

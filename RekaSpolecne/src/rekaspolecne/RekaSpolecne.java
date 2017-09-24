@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author DHA
+ * @author společně
  */
 public class RekaSpolecne {
 
@@ -20,49 +20,29 @@ public class RekaSpolecne {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        String[] fleetNames = {"Flotila USA","Flotila USSR","Flotila Japonsko","Flotila Německo","Flotila UK"};
+        int numberShips =4;   //zde se zadává počet lodí ve flotile
+        int numberFleets =4;  //zde se zadává počet flotil ve hře
+        
+        
         try {
         Handler fileHandler = new FileHandler("logger.log", 2000, 5);
         } catch (SecurityException | IOException e) {
             e.printStackTrace();
         }
-        /* STARÝ KÓD
-        // nejdříve založíme flotilu Ameriky
-        BattleShip indianapolis = new BattleShip ("Indianapolis",1,8);
-        Cruiser grant = new Cruiser ("Grant",1,7);
-        Cruiser lee = new Cruiser ("Lee",1,8);
-        RescueShip mississippi = new RescueShip ("Mississippi",1,4);
-        
-        Fleet fleetUSA = new Fleet ();
-        fleetUSA.setTeamName("Flotila USA");
-        fleetUSA.addTeamShip(indianapolis);
-        fleetUSA.addTeamShip(grant);
-        fleetUSA.addTeamShip(lee);
-        fleetUSA.addTeamShip(mississippi);
         
         
+        // vygenerování flotil do kolekce river
+        River river = new River (numberShips, numberFleets, fleetNames);
+        Graveyard graveyard = new Graveyard();
+        BattleSimulator battleSimulator = new BattleSimulator (river); 
+        battleSimulator.run();
         
-        // a dále flotilu Sovětského Svazu
-        BattleShip rudyRijen = new BattleShip ("Rudý říjen",2,7);
-        Cruiser kutuzov = new Cruiser ("Kutuzov",2,6);
-        Cruiser kursk = new Cruiser ("Kursk",2,5);
-        RescueShip lenin = new RescueShip ("Lenin",2,4);
-        
-        Fleet fleetUSSR = new Fleet ();
-        fleetUSSR.setTeamName("Flotila USSR");
-        fleetUSSR.addTeamShip(rudyRijen);
-        fleetUSSR.addTeamShip(kutuzov);
-        fleetUSSR.addTeamShip(kursk);
-        fleetUSSR.addTeamShip(lenin);
-        
-        // umístění flotil do kolekce river
-        River river = new River ();
-        river.addFleet(fleetUSA);
-        river.addFleet(fleetUSSR); */
-        
+        /* DODĚLAT
         // a dále spustíme bitvu dokud nezůstane 1 vítězná flotila
         BattleSimulator battleSimulator = new BattleSimulator (river); 
         River victor = battleSimulator.battle();
-        System.out.println("A bitvu vyhrává: " + victor.getTeamFleet(0).getTeamName());
+        System.out.println("A bitvu vyhrává: " + victor.getTeamFleet(0).getTeamName()); */
     }    
 }
 

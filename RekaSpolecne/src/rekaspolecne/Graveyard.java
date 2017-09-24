@@ -15,7 +15,9 @@ public class Graveyard {
     // kolekce lodí s 0 HP
     ArrayList<Ship> graveyard = new ArrayList<>();
     
-    
+    public Graveyard () {
+        
+    }
 
 
     /**
