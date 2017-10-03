@@ -28,6 +28,9 @@ public class BattleSimulator {
         tj. právě s 1 elementem */
         while (this.river.getSize()>1) {
             
+            // opravi vsechny lode
+            river.RepairAllShips();
+            
             //cyklus - náhodná loď z každé flotily vystřelí na náhodný cíl
             for (int i=0; i<this.river.getSize(); i++) {
                 // index lodi, která bude útočit
