@@ -7,12 +7,14 @@ package rekaspolecne;
 
 /**
  * Tato třída importuje instanci typu Ship a může na ní provést repair (zvýšení
- * atributu hp) 
+ * atributu hp)
+ *
  * @author DHA
  */
 public class Dock {
+
     private Ship shipForDocking;
-    private boolean isEmpty =true;
+    private boolean isEmpty = true;
 
     public Dock() {
     }
@@ -21,11 +23,14 @@ public class Dock {
      * Repairs ship for hp++
      */
     public void repair() {
-        if (getShipForDocking().getHp()<getShipForDocking().getMaxHp()) { 
+        if (getShipForDocking().getHp() < getShipForDocking().getMaxHp()) {
             getShipForDocking().setHp(getShipForDocking().getHp() + 1);
             System.out.println(getShipForDocking().toString() + " byla opravena za 1HP");
         } else {
             System.out.println(getShipForDocking().toString() + " je na maximu HP");
+            this.getShipForDocking().setIsInDock(false);
+            this.shipForDocking = null;
+            this.setIsEmpty(true);
         }
     }
 
@@ -37,17 +42,19 @@ public class Dock {
     }
 
     /**
-     * Setter for the shipForDocking 
+     * Setter for the shipForDocking
+     *
      * @param shipForDocking Ship
      */
     public void setShipForDocking(Ship shipForDocking) {
         this.shipForDocking = shipForDocking;
-        shipForDocking.isInDock =true;
-        this.isEmpty =false;
+        shipForDocking.isInDock = true;
+        this.isEmpty = false;
     }
 
     /**
      * Returns runtime value of isEmpty
+     *
      * @return boolean
      */
     public boolean isEmpty() {
@@ -56,6 +63,7 @@ public class Dock {
 
     /**
      * Setter for isEmpty
+     *
      * @param isEmpty boolean
      */
     public void setIsEmpty(boolean isEmpty) {
