@@ -81,6 +81,95 @@ public class Fleet {
             d.repair();
         }
     }
+    /**
+     * metoda pro overeni zda je Rescue Ship pripravena pro odvoz lodi do doku
+     * @return 
+     * vrací boolean
+     */
+    public boolean isRescueShipReady() {
+        return this.fleetShips.stream().filter((ship) -> (ship instanceof RescueShip)).map((ship) -> (RescueShip)ship).anyMatch((rescueShip) -> (!rescueShip.getWorkMode()&&!rescueShip.isInDock&&!rescueShip.isInGraveyard));
+    }
+    /**
+     * metoda pro overeni zda je Dock pripravena pro prijem lodi do doku
+     * @return 
+     * vrací boolean
+     */
+    public boolean isDockReady() {
+        return this.fleetDocks.stream().anyMatch((dock) -> (dock.isEmpty()));
+    }
+    /**
+     * metoda pro overeni zda je Dock pripravena pro prijem lodi do doku
+     * @return 
+     * vrací boolean
+     */
+    public boolean isFleetShipInGraveyard() {
+        return this.fleetShips.stream().anyMatch((ship) -> (ship.isInGraveyard));
+    } 
+    /**
+     * metoda pro zavolání doku jenž je pripraven pro prijem lodi do doku
+     * @return 
+     * vrací volnou Dock
+     */
+    public Dock getDockReady() {
+        for(Dock dock:this.fleetDocks){
+           if (dock.isEmpty()){
+               return dock;
+           }
+        }      
+        return null;
+    }
+    /**
+     * metoda pro zavolání RescueShip jenž je pripravena pro odvoz lodi do doku
+     * @return 
+     * vrací volnou RescueShip
+     */
+    public RescueShip getRescueShipReady() {
+        for(Ship ship:this.fleetShips){
+           if(ship instanceof RescueShip){
+               RescueShip rescueShip = (RescueShip)ship;
+               if (!rescueShip.getWorkMode()&&!rescueShip.isInDock&&!rescueShip.isInGraveyard){
+                   return rescueShip;
+               }
+           }
+        }      
+        return null;
+    }/**
+     * metoda pro zavolání ship z graveyardu pro odvoz do doku na opravu
+     * @return 
+     * Vrací zničenou loď 
+     */
+    public Ship getFleetShipInGraveyard() {
+        for(Ship ship:this.fleetShips){
+           if (ship.isInGraveyard){
+               return ship;
+           }
+        }      
+        return null;
+    }
+    /**
+     * metoda pro dokování lodí na opravu.
+     * metoda probíha dokavad jsou kdyspozici volné doky, rescueShipy a zničené lodě.
+     */
+    public void setShipsForRepair(){
+        if (isDockReady()&&isRescueShipReady()&&isFleetShipInGraveyard()){
+            RescueShip rescueShip;
+            Ship ship;
+            for(Dock dock:this.fleetDocks){
+                if (dock.isEmpty()&&isRescueShipReady()&&isFleetShipInGraveyard()){
+                    
+                        rescueShip=getRescueShipReady();
+                        ship=getFleetShipInGraveyard();
+                        rescueShip.setWorkMode(true);
+                        ship.setIsInGraveyard(false);
+                        ship.setIsInDock(true);
+                        dock.setShipForDocking(ship);
+                        dock.setIsEmpty(false);
+                    
+                }
+            }
+        }
+    }
+    
 
     @Override
     public String toString() {

@@ -25,7 +25,14 @@ public class River {
             this.addFleet(fleet);
         }
     }
-
+    /**
+     * Adds Fleets Ships in graveyard to empty docks via free RescueShips
+     */
+    public void setFleetsShipsForRepair(){
+     for (Fleet fleet:this.river){
+         fleet.setShipsForRepair();
+     }
+    }
     /**
      * Adds fleet to AL river
      *

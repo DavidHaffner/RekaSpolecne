@@ -22,6 +22,7 @@ public class BattleSimulator {
     /* metoda simuluje boj všech flotil až do konečného řešení vítězné otázky,
     tj. dokud nezůstane poslední flotila */
     public River run () {
+        
         HitEvaluator hitEvaluator = new HitEvaluator();
         
         /* až zůstane v kolekci river poslední flotila, tak kolekci vrátíme jako output
@@ -30,7 +31,7 @@ public class BattleSimulator {
             
             // opravi vsechny lode
             river.RepairAllShips();
-            
+            river.setFleetsShipsForRepair();
             //cyklus - náhodná loď z každé flotily vystřelí na náhodný cíl
             for (int i=0; i<this.river.getSize(); i++) {
                 // index lodi, která bude útočit
