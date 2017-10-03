@@ -31,6 +31,7 @@ public class BattleSimulator {
             
             // opravi vsechny lode
             river.RepairAllShips();
+            //vytahne z graveyards znicene lode skrze vsechny volne Rescueshipy do vsech volnych doku 
             river.setFleetsShipsForRepair();
             //cyklus - náhodná loď z každé flotily vystřelí na náhodný cíl
             for (int i=0; i<this.river.getSize(); i++) {
