@@ -48,7 +48,8 @@ public class BattleShip extends Ship {
     @Override
     public String toString() {
         return "Jmeno lodi: " +this.getName() +";\n" +"Pocet zivotu: " +this.getHp()
-                +";\n" +"Pocet del: " +this.getNumberCannon() +";\n"   
+                +";\n" +"Pocet del: " +this.getNumberCannon() +";\n"
+                +"Přesnost: " +this.getAccuracy() +";\n"   
                 +this.getFleet().toString() +";\n";
     }
 }
