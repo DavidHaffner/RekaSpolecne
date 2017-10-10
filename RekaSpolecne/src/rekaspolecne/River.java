@@ -28,10 +28,10 @@ public class River {
     /**
      * Adds Fleets Ships in graveyard to empty docks via free RescueShips
      */
-    public void setFleetsShipsForRepair(){
+    public void setFleetsShipsForRepair(Graveyard graveyard){
      for (Fleet fleet:this.river){
           try {
-         fleet.setShipsForRepair();
+         fleet.setShipsForRepair(graveyard);
           }
           catch (Exception ex) {
                 Logger.getLogger(River.class.getName()).log(Level.SEVERE, null, ex);

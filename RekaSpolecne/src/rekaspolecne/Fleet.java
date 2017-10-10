@@ -87,7 +87,15 @@ public class Fleet {
      * vrací boolean
      */
     public boolean isRescueShipReady() {
-        return this.fleetShips.stream().filter((ship) -> (ship instanceof RescueShip)).map((ship) -> (RescueShip)ship).anyMatch((rescueShip) -> (!rescueShip.getWorkMode()&&!rescueShip.isInDock&&!rescueShip.isInGraveyard));
+        for(Ship ship:this.fleetShips){
+           if(ship instanceof RescueShip){
+               RescueShip rescueShip = (RescueShip)ship;
+               if (!rescueShip.getWorkMode()&&!rescueShip.isInDock&&!rescueShip.isInGraveyard){
+                   return true;
+               }
+           }
+        }
+        return false;
     }
     /**
      * metoda pro overeni zda je Dock pripravena pro prijem lodi do doku
@@ -95,18 +103,33 @@ public class Fleet {
      * vrací boolean
      */
     public boolean isDockReady() {
-        return this.fleetDocks.stream().anyMatch((dock) -> (dock.isEmpty()));
+         for(Dock dock:this.fleetDocks){
+           if (dock.isEmpty()){
+               return true;
+           }
+        }      
+        return false;
     }
     /**
      * metoda pro overeni zda je Dock pripravena pro prijem lodi do doku
      * @return 
      * vrací boolean
      */
-    public boolean isFleetShipInGraveyard() {
-        return this.fleetShips.stream().anyMatch((ship) -> (ship.isInGraveyard));
+    public boolean isFleetShipInGraveyard(Graveyard graveyard) {
+       for(Ship ship:graveyard.graveyard){
+           if (ship.getFleet().getFleetName()==this.fleetName){
+               return true;
+           }
+        }      
+        return false;
     } 
     public boolean isFleetShipReady() {
-        return this.fleetShips.stream().anyMatch((ship) -> (!ship.isInDock&&!ship.isInGraveyard));
+        for(Ship ship:this.fleetShips){
+           if (!ship.isInGraveyard&&!ship.isInDock){
+               return true;
+           }
+        }      
+        return false;
     } 
     /**
      * metoda pro zavolání doku jenž je pripraven pro prijem lodi do doku
@@ -120,6 +143,9 @@ public class Fleet {
            }
         }      
         return null;
+    }
+    public String getFleetName() {
+        return this.fleetName;
     }
     /**
      * metoda pro zavolání RescueShip jenž je pripravena pro odvoz lodi do doku
@@ -141,9 +167,9 @@ public class Fleet {
      * @return 
      * Vrací zničenou loď 
      */
-    public Ship getFleetShipInGraveyard() {
-        for(Ship ship:this.fleetShips){
-           if (ship.isInGraveyard){
+    public Ship getFleetShipInGraveyard(Graveyard graveyard) {
+        for(Ship ship:graveyard.graveyard){
+           if (ship.getFleet().getFleetName()==this.fleetName){
                return ship;
            }
         }      
@@ -153,16 +179,17 @@ public class Fleet {
      * metoda pro dokování lodí na opravu.
      * metoda probíha dokavad jsou kdyspozici volné doky, rescueShipy a zničené lodě.
      */
-    public void setShipsForRepair() throws Exception{
-        if (isDockReady()&&isRescueShipReady()&&isFleetShipInGraveyard()){
+    public void setShipsForRepair(Graveyard graveyard) throws Exception{
+        if (isDockReady()&&isRescueShipReady()&&isFleetShipInGraveyard(graveyard)){
             RescueShip rescueShip;
             Ship ship;
             for(Dock dock:this.fleetDocks){
-                if (dock.isEmpty()&&isRescueShipReady()&&isFleetShipInGraveyard()){
+                if (dock.isEmpty()&&isRescueShipReady()&&isFleetShipInGraveyard(graveyard)){
                         
                         rescueShip=getRescueShipReady();
-                        System.out.println(rescueShip);
-                        ship=getFleetShipInGraveyard();
+                        
+                        ship=getFleetShipInGraveyard(graveyard);
+                        System.out.println(rescueShip.getName()+" táhne lod " +ship.getName()+" na opravu do doku ");
                         rescueShip.setWorkMode(true);
                         ship.setIsInGraveyard(false);
                         ship.setIsInDock(true);
@@ -171,12 +198,12 @@ public class Fleet {
                     
                 }
                 else{
-                 throw new Exception("nejsou k dispozici Rescueship ci doky ci lode na opravu");
+                 throw new Exception("2 nejsou k dispozici Rescueship ci doky ci lode na opravu");
                 }
             }
         }
         else{
-        throw new Exception("nejsou k dispozici Rescueship ci doky ci lode na opravu");
+        throw new Exception("1 nejsou k dispozici Rescueship ci doky ci lode na opravu");
         }
     }
     
