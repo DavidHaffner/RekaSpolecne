@@ -30,12 +30,14 @@ public class HitEvaluator {
         Random rand = new Random();
         if (shipA instanceof BattleShip) {
             shipA = (BattleShip) shipA;
-            return rand.nextInt(shipA.getAccuracy())+((BattleShip)shipA).getNumberCannon()>
-                    rand.nextInt(shipB.getAccuracy())+shipB.getHp()-((BattleShip)shipA).getNumberCannon();
+            
+            return rand.nextInt(shipA.getAccuracy())+((BattleShip)shipA).getNumberCannon()>rand.nextInt(shipB.getAccuracy());
         }
         if (shipA instanceof Cruiser) {
+            shipA = (Cruiser) shipA;
+            
             return rand.nextInt(shipA.getAccuracy())+((Cruiser)shipA).getNumberCannon()>
-                    rand.nextInt(shipB.getAccuracy())+shipB.getHp()-((Cruiser)shipA).getNumberCannon();
+                    rand.nextInt(shipB.getAccuracy());
         } else {
             return false;    
         }

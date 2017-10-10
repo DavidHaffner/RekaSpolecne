@@ -30,7 +30,12 @@ public class River {
      */
     public void setFleetsShipsForRepair(){
      for (Fleet fleet:this.river){
+          try {
          fleet.setShipsForRepair();
+          }
+          catch (Exception ex) {
+                Logger.getLogger(River.class.getName()).log(Level.SEVERE, null, ex);
+            }
      }
     }
     /**

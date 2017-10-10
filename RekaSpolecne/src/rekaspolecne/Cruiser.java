@@ -35,4 +35,11 @@ public class Cruiser extends Ship {
     }
 
     /* nějaké extra metody speciálně pro Cruiser? */
+   @Override
+    public String toString() {
+        return "Jmeno lodi: " +this.getName() +";\n" +"Pocet zivotu: " +this.getHp()
+                +";\n" +"Pocet del: " +this.getNumberCannon() +";\n"
+                +"Přesnost: " +this.getAccuracy() +";\n"   
+                +this.getFleet().toString() +";\n";
+    }
 }

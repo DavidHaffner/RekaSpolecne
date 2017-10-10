@@ -27,5 +27,10 @@ public class RescueShip extends Ship {
     public void setWorkMode(boolean workMode) {
         this.workMode = workMode;
     }
-    
+    @Override
+    public String toString() {
+        return "Jmeno lodi: " +this.getName() +";\n" +"Pocet zivotu: " +this.getHp()
+                +"Přesnost: " +this.getAccuracy() +";\n"   
+                +this.getFleet().toString() +";\n";
+    }
 }

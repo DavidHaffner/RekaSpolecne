@@ -105,6 +105,9 @@ public class Fleet {
     public boolean isFleetShipInGraveyard() {
         return this.fleetShips.stream().anyMatch((ship) -> (ship.isInGraveyard));
     } 
+    public boolean isFleetShipReady() {
+        return this.fleetShips.stream().anyMatch((ship) -> (!ship.isInDock&&!ship.isInGraveyard));
+    } 
     /**
      * metoda pro zavolání doku jenž je pripraven pro prijem lodi do doku
      * @return 
@@ -150,14 +153,15 @@ public class Fleet {
      * metoda pro dokování lodí na opravu.
      * metoda probíha dokavad jsou kdyspozici volné doky, rescueShipy a zničené lodě.
      */
-    public void setShipsForRepair(){
+    public void setShipsForRepair() throws Exception{
         if (isDockReady()&&isRescueShipReady()&&isFleetShipInGraveyard()){
             RescueShip rescueShip;
             Ship ship;
             for(Dock dock:this.fleetDocks){
                 if (dock.isEmpty()&&isRescueShipReady()&&isFleetShipInGraveyard()){
-                    
+                        
                         rescueShip=getRescueShipReady();
+                        System.out.println(rescueShip);
                         ship=getFleetShipInGraveyard();
                         rescueShip.setWorkMode(true);
                         ship.setIsInGraveyard(false);
@@ -166,7 +170,13 @@ public class Fleet {
                         dock.setIsEmpty(false);
                     
                 }
+                else{
+                 throw new Exception("nejsou k dispozici Rescueship ci doky ci lode na opravu");
+                }
             }
+        }
+        else{
+        throw new Exception("nejsou k dispozici Rescueship ci doky ci lode na opravu");
         }
     }
     
@@ -210,7 +220,7 @@ public class Fleet {
         for (int i = 1; i <= numberShips; i++) {
             String shipName = "Loď " + i;
             if (i % 4 == 0) { //každá čtvrtá loď je RescueShip + vytvoří i dok
-                RescueShip rescueShip = new RescueShip(shipName, this, 0);
+                RescueShip rescueShip = new RescueShip(shipName, this, 5);
                 this.addShip(rescueShip);
                 Dock dock = new Dock();
                 this.addDock(dock);
@@ -218,7 +228,7 @@ public class Fleet {
                 /*vytvářím buď BattleShip nebo Cruiser;
                  hodnota accuracy bude v rozmezí 3-8 */
                 int randomShip = (int) (Math.random() * 2);
-                int randomAccuracy = (int) (Math.random() * 6 + 3);
+                int randomAccuracy = (int) (Math.random() * 6 + 4);
                 switch (randomShip) {
                     case 0:
                         BattleShip battleShip = new BattleShip(shipName, this, randomAccuracy);

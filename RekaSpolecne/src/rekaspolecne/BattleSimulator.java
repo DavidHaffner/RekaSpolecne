@@ -66,7 +66,7 @@ public class BattleSimulator {
                 }
                 
                // System.out.printf(defender.toString()); //výstup do konzole
-               
+               System.out.println(defender);
                 if (defender.getHp()<1) {
                 defender.setHp(0);
                 defender.setIsInGraveyard(true); //nechceme záporné HP - nastavení na nulu
