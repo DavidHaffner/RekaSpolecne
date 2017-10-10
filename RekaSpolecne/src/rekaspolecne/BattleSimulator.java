@@ -13,7 +13,7 @@ import java.util.Random;
  */
 public class BattleSimulator {
     River river;
-    Graveyard graveyard;
+    Graveyard graveyard=new Graveyard(); 
 
     public BattleSimulator (River river) {
         this.river = river;
@@ -49,6 +49,7 @@ public class BattleSimulator {
                         this.river.getFleet(indexFleetDefender).sizeFleetShips());
                 
                 Ship attacker = this.river.getFleet(i).getFleetShip(indexShipAttacker);
+                
                 Ship defender = this.river.getFleet(indexFleetDefender).getFleetShip(indexShipDefender);
                 
                 if (hitEvaluator.hitEvaluator(attacker, defender)) { //jestli se útočník trefí
@@ -64,13 +65,14 @@ public class BattleSimulator {
                     }
                 }
                 
-                System.out.printf(defender.toString()); //výstup do konzole
-                System.out.println();
+               // System.out.printf(defender.toString()); //výstup do konzole
+               
                 if (defender.getHp()<1) {
-                defender.setHp(0);  //nechceme záporné HP - nastavení na nulu
+                defender.setHp(0);
+                defender.setIsInGraveyard(true); //nechceme záporné HP - nastavení na nulu
+               
+                graveyard.addShip(defender);  //přidá zničeného obránce do graveyardu
                 
-                graveyard.addShip((Ship)defender);  //přidá zničeného obránce do graveyardu
-                defender.setIsInGraveyard(true);
                 this.river.getFleet(indexFleetDefender).removeShip(indexShipDefender); //odstraní z flotily
                 }
                 if (this.river.getFleet(indexFleetDefender).sizeFleetShips()==0) {
