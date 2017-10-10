@@ -28,6 +28,7 @@ public class Dock {
             System.out.println(getShipForDocking().toString() + " byla opravena za 1HP");
         } else {
             System.out.println(getShipForDocking().toString() + " je na maximu HP");
+            this.getShipForDocking().getFleet().addShip(this.getShipForDocking());
             this.getShipForDocking().setIsInDock(false);
             this.shipForDocking = null;
             this.setIsEmpty(true);
