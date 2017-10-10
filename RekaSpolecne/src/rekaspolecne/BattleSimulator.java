@@ -49,17 +49,18 @@ public class BattleSimulator {
                         this.river.getFleet(indexFleetDefender).sizeFleetShips());
                 
                 Ship attacker = this.river.getFleet(i).getFleetShip(indexShipAttacker);
-                Ship defender = this.river.getFleet(indexFleetDefender).
-                        getFleetShip(indexShipDefender);
+                Ship defender = this.river.getFleet(indexFleetDefender).getFleetShip(indexShipDefender);
                 
                 if (hitEvaluator.hitEvaluator(attacker, defender)) { //jestli se útočník trefí
                     if (attacker instanceof BattleShip) {
                         //vystřelí do obránce
-                        defender.setHp(defender.getHp()-((BattleShip)attacker).getNumberCannon()); 
+                        defender.setHp(defender.getHp()-((BattleShip)attacker).getNumberCannon());
+                        if (defender.getHp()<0){defender.setHp(0);}
                     }
                     if (attacker instanceof Cruiser) { 
                         //vystřelí do obránce
                         defender.setHp(defender.getHp()-((Cruiser)attacker).getNumberCannon()); 
+                        if (defender.getHp()<0){defender.setHp(0);}
                     }
                 }
                 
@@ -67,11 +68,11 @@ public class BattleSimulator {
                 System.out.println();
                 if (defender.getHp()<1) {
                 defender.setHp(0);  //nechceme záporné HP - nastavení na nulu
-                }
-                graveyard.addShip(defender);  //přidá zničeného obránce do graveyardu
+                
+                graveyard.addShip((Ship)defender);  //přidá zničeného obránce do graveyardu
                 defender.setIsInGraveyard(true);
                 this.river.getFleet(indexFleetDefender).removeShip(indexShipDefender); //odstraní z flotily
-                
+                }
                 if (this.river.getFleet(indexFleetDefender).sizeFleetShips()==0) {
                     this.river.removeFleet(indexFleetDefender); //flotila bez lodí je odstraněna z river
                 }
